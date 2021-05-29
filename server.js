@@ -8,7 +8,7 @@ require('dotenv').config();
 
 server1.use(cors());
 // const PORT2 =3003;
-const PORT2 =process.env.PORT2;
+const PORT2 =process.env.PORT;
 
 server1.listen(PORT2,()=>{
     console.log(`i am listening on port ${PORT2}`);
