@@ -31,3 +31,15 @@ Start time: 6:00 am
 Finish time: 8:00 am
 
 Actual time needed to complete: 2 hours
+
+## lab 09
+
+Name of feature: seperate the weather and movies to modules
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 1:00 am
+
+Finish time: 1:20 am
+
+Actual time needed to complete: 20 mins
