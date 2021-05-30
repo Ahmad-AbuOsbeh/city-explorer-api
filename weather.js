@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+let inMemory={};
+
 class Forecast {
 
     constructor(newInstance){
@@ -19,18 +21,26 @@ function  gettingWeather(request,response) {
     let requsetedCity=request.query.desired_city;
     let weathUrlReq=`http://api.weatherbit.io/v2.0/current?city=${requsetedCity}&key=${WEATHER_API_KEY}`
     // let wheatherApiResult= 
-    axios
-    .get(weathUrlReq)
-    .then(results=>{
-        let r=results.data.data[0];
-        console.log('resul.data.data',r);
-        let finalData=new Forecast(r);
-        response.status(200).send(finalData);
-
-    })
-    .catch(err=>{
-        response.status(500).send(`error in getting data ==> ${err}`)
-    })
+   if (inMemory[requsetedCity] !== undefined) {
+       response.send(inMemory[requsetedCity]);
+       console.log('helloooo from cach memory,weather');
+   } else {
+       
+       axios
+       .get(weathUrlReq)
+       .then(results=>{
+           let r=results.data.data[0];
+        //    console.log('resul.data.data',r);
+           let finalData=new Forecast(r);
+           response.status(200).send(finalData);
+           inMemory[requsetedCity]=finalData;
+           console.log('helloooo from 3rd party weather API');
+       })
+       .catch(err=>{
+           response.status(500).send(`error in getting data ==> ${err}`)
+       })
+   }
+   
 }
 
 module.exports = gettingWeather;
