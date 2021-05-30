@@ -43,3 +43,15 @@ Start time: 1:00 am
 Finish time: 1:20 am
 
 Actual time needed to complete: 20 mins
+
+## lab 10
+
+Name of feature: save the response in the cach memory
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 1:35 am
+
+Finish time: 1: am
+
+Actual time needed to complete: 20 mins
